@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"go-scim/pkg/handlers"
 	"go-scim/pkg/models"
 	"net/http"
 )
@@ -17,7 +18,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func PatchUsers(w http.ResponseWriter, r *http.Request) {
+func UpsertUsers(w http.ResponseWriter, r *http.Request) {
 	var b []byte
 	_, err := r.Body.Read(b)
 	if err != nil {
@@ -32,5 +33,8 @@ func PatchUsers(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Unable to marshal payload into go struct"))
 		return
 	}
-
+	err = handlers.UpsertUsers(users)
+	if err != nil {
+		if err.
+	}
 }
