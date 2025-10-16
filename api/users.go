@@ -35,6 +35,6 @@ func UpsertUsers(w http.ResponseWriter, r *http.Request) {
 	}
 	err = handlers.UpsertUsers(users)
 	if err != nil {
-		if err.
+		//handle type errors
 	}
 }
